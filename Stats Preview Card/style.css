@@ -1,0 +1,164 @@
+/* universal styles */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+
+:root {
+	--darkblue: hsl(233, 47%, 7%);
+	--desablue: hsl(244, 38%, 16%);
+	--violet: hsl(277, 64%, 61%);
+	--white: hsl(0, 0%, 100%);
+	--alpha: hsla(0, 0%, 100%, 0.75);
+	--sans: "Inter", "Helvetica", "Arial", sans;
+}
+
+body {
+	font: 400 15px/1.7 var(--sans);
+	background-color: var(--darkblue);
+	color: var(--alpha);
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	grid-template-columns:
+		minmax(1.2rem, 1fr)
+		minmax(auto, 100ch)
+		minmax(1.2rem, 1fr);
+}
+
+main {
+	grid-column-start: 2;
+}
+
+/* container */
+
+.container {
+	background-color: var(--desablue);
+	border-radius: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.733);
+	height: 37ch;
+}
+
+.text_content {
+	padding: 0 2rem;
+}
+
+/* elements */
+
+ul {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+li {
+	display: inline-block;
+	margin-top: 3rem;
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	letter-spacing: 0.1rem;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.3rem;
+}
+
+h1,
+h2 {
+	color: var(--white);
+	line-height: 1.1;
+}
+
+.main_image {
+	overflow: hidden;
+	margin: 0;
+	min-width: 27rem;
+	background: url(./images/image-header-desktop.jpg) no-repeat;
+	background-size: cover;
+	object-fit: cover;
+	position: relative;
+	border-bottom-right-radius: 1rem;
+	border-top-right-radius: 1rem;
+	content: "";
+}
+
+/* modifiers */
+
+.accent {
+	color: var(--violet);
+	font-size: inherit;
+}
+
+.overlay {
+	background-color: hsl(277, 64%, 61%);
+	mix-blend-mode: hard-light;
+	height: 100%;
+	opacity: 65%;
+	border-bottom-right-radius: 1rem;
+	border-top-right-radius: 1rem;
+}
+
+.flow > * + * {
+	margin-top: 1.5rem;
+}
+
+.attribution {
+	font-size: 0.8rem;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+a {
+	font-size: inherit;
+	color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		text-align: center;
+		grid-template-columns:
+			minmax(1.2rem, 1fr)
+			minmax(auto, 40ch)
+			minmax(1.2rem, 1fr);
+	}
+
+	.container {
+		flex-direction: column-reverse;
+		height: auto;
+	}
+
+	.main_image {
+		content: "";
+		overflow: hidden;
+		margin: 0;
+		min-width: 33rem;
+		background: url(./images/image-header-desktop.jpg) no-repeat;
+		background-size: cover;
+		object-fit: cover;
+		position: relative;
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
+		padding-bottom: 20rem;
+	}
+
+	ul {
+		flex-direction: column;
+		align-items: center;
+		margin: 0.5rem;
+	}
+
+	.text_content,
+	li {
+		margin: 1rem;
+	}
+}
